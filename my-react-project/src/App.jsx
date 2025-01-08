@@ -1,41 +1,31 @@
 import "./App.css";
 import HeaderComponent from "./components/HeaderComponent";
-import ButtonComponent from "./components/ButtonComponent";
+//import ButtonComponent from "./components/ButtonComponent";
+//import Login from "./components/Login";
+import MovieList from "./components/MovieList";
+import AnimalList from "./components/AnimalList";
 import { useState } from "react";
 
 function App() {
-  //let number = 0;
-  const [number, setNumber] = useState(0);
-  const [myValue, setMyValue] = useState("");
-  let myPlaceHolder = "Escribe aquí";
-
-  const addOne = () => {
-    //number++;
-    setNumber(number + 1);
-    console.log(number);
+  
+  const [greetings] = useState("Bienvenidos a mi web"); //valor x dft
+  const links = {
+    home: "Home",
+    blog: "Blog",
+    news: "News",
+    contact: "Contact Us",
   };
 
-  const sayHello = () => {
-    alert("hola!!");
-  };
-
-  const handleChange = (e) => {
-    console.log(e.target.value);
-  };
+  
 
   return (
+    //lo que se muestra en HTML
     <>
-      <HeaderComponent></HeaderComponent>
+      <HeaderComponent greetings={greetings} links={links}></HeaderComponent>
       <main className="mainContent">
-        <h1 onClick={sayHello}>Hola a todos!!!</h1>
-        <h2 onClick={addOne}> Number : {number}</h2>
-        <input
-          placeholder={myPlaceHolder}
-          onChange={handleChange}
-          type="text"
-          value={myValue}
-        />
-        <ButtonComponent></ButtonComponent>
+        <h2>Hola a todos!</h2>
+        <MovieList></MovieList>
+        <AnimalList></AnimalList>
       </main>
     </>
   );

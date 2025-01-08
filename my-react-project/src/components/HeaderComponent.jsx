@@ -1,29 +1,32 @@
+/* eslint-disable react/prop-types */
 import "./HeaderComponent.css";
 
-function HeaderComponent() {
+function HeaderComponent(props) {
+  // eslint-disable-next-line react/prop-types
+  const {greetings, links} = props; 
   return (
     <header className="header">
-      <h1 className="title">Bienvenidos!</h1>
+      <h1 className="title">{greetings}!</h1>
       <nav>
         <ul className="headerList">
           <li>
             <a className="link" href="#">
-              Home
+              {links.home}
             </a>
           </li>
           <li>
             <a className="link" href="#">
-              Blog
+              {links.blog}
             </a>
           </li>
           <li>
             <a className="link" href="#">
-              News
+              {links.news}
             </a>
           </li>
           <li>
             <a className="link" href="#">
-              Contact Us
+              {links.contact}
             </a>
           </li>
         </ul>
